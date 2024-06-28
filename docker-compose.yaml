@@ -1,36 +1,64 @@
+# version: '3.8'
+
+# services:
+#   api:
+#     image: group21/tood:latest
+#     ports: 
+#       - '4000:4000'
+#     networks:
+#       - restaurant
+#     depends_on:
+#       - mongo
+
+#   client:
+#     image: group21/toodfrontend:latest
+#     stdin_open: true
+#     ports:
+#       - '3000:3000'
+#     networks:
+#       - restaurant
+
+#   mongo:
+#     image: mongo:latest
+#     ports:
+#       - '27017:27017'
+#     networks:
+#       - restaurant
+#     volumes:
+#       - mongo-data:/data/db
+    
+# networks:
+#   restaurant:
+#     driver: bridge
+
+# volumes:
+#   mongo-data:
+#     driver: local
+
 version: '3.8'
 
 services:
-  api:
-    image: group21/tood:latest
-    ports: 
-      - '4000:4000'
-    networks:
-      - restaurant
+  backend:
+    build: ./backend
+    container_name: vidush
+    ports:
+      - "4000:4000"
     depends_on:
       - mongo
 
-  client:
-    image: group21/toodfrontend:latest
-    stdin_open: true
+  frontend:
+    build: ./frontend
+    container_name: devops_frontend
     ports:
-      - '3000:3000'
-    networks:
-      - restaurant
+      - "3000:3000"
+    depends_on:
+      - backend
 
   mongo:
     image: mongo:latest
     ports:
       - '27017:27017'
-    networks:
-      - restaurant
-    volumes:
-      - mongo-data:/data/db
-    
-networks:
-  restaurant:
-    driver: bridge
 
 volumes:
   mongo-data:
-    driver: local
+      driver: local
