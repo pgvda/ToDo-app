@@ -5,8 +5,8 @@ pipeline {
         REPO_URL = 'https://github.com/pgvda/ToDo-app.git'
         BRANCH = 'main'
         APP_NAME = 'ToDo-App'
-        FRONTEND_IMAGE = 'group21/toodfrontend:latest'
-        BACKEND_IMAGE = 'group21/tood:latest'
+        FRONTEND_IMAGE = 'vidushs/devop_frontend:latest'
+        BACKEND_IMAGE = 'vidushs/devop_backend:latest'
     }
 
     stages {
