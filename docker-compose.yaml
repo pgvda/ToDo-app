@@ -40,7 +40,7 @@ version: '3.8'
 services:
   backend:
     build: ./backend
-    container_name: vidush
+    container_name: devop_backend
     ports:
       - "4000:4000"
     depends_on:
