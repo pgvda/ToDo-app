@@ -40,7 +40,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'vidushadockerHub', variable: 'dockerhub')])  {
                     script {
-                        bat "docker login -u vidushs -p ${mernapp}"
+                        bat "docker login -u vidushs -p ${dockerhub}"
                     }
                 }
             }
