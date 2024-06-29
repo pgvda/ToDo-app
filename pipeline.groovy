@@ -38,7 +38,7 @@ pipeline {
 
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'vidushadockerHub', variable: 'dockerhub')])  {
+                withCredentials([string(credentialsId: 'pgvidushadilshan@gmail.com', variable: '19991109@Vidusha#')])  {
                     script {
                         bat "docker login -u vidushs -p ${dockerhub}"
                     }
