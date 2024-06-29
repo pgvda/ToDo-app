@@ -37,14 +37,18 @@ pipeline {
         }
 
         stage('Login to Docker Hub') {
-            steps {
-                withCredentials([string(credentialsId: 'DockerHubPass', variable: 'DockerHubPass')]) {
-                    script {
-                        bat "docker login -u vidushs -p ${DockerHubPass}"
-                    }
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerpass', usernameVariable: 'vidushs', passwordVariable: '1999Vidusha')]) {
+            script {
+                if (isUnix()) {
+                    sh 'docker login -u $vidushs -p $1999Vidusha'
+                } else {
+                    bat 'docker login -u %vidushs% -p %1999Vidusha%'
                 }
             }
         }
+    }
+}
 
         stage('Add tag to Image Frontend') {
             steps {
